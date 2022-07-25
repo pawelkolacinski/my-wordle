@@ -1,0 +1,46 @@
+.keyboard {
+    width:484px;
+    margin:0 auto;
+}
+
+.keyboard-row{
+    display:flex;
+    justify-content: start;
+    margin-bottom: 6px;
+    gap:6.5px;
+}
+
+.keyboard-row:nth-child(2){
+    position:relative;
+    left:21px;
+}
+
+.keyboard-key{
+   width:43px;
+   height:57px;
+   font-size: 1.1em;
+   background-color:#d3d6da;
+   border:none;
+   border-radius:4px;
+}
+
+.keyboard-key[data-key="Enter"],.keyboard-key[data-key="Backspace"]{
+    width:64px;
+}
+
+.keyboard-key[data-key="Backspace"]{
+    color: transparent;
+    position:relative;
+}
+.keyboard-key[data-key="Backspace"]::after {
+    content: "";
+    background-image: url(../assets/backspace_icon.svg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%,-50%);
+    background-repeat: no-repeat;
+}
+

@@ -3,3 +3,20 @@
   padding:0;
   box-sizing: border-box;
 }
+
+
+
+.keyboard-key.wordleletter-exists-same-place{
+  background-color: green;
+
+}
+
+.keyboard-key.wordleletter-exists-different-place{
+  background-color: yellow;
+  
+}
+
+.keyboard-key.wordleletter-exists-not{
+  background-color: black;
+  
+}
