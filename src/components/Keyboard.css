@@ -1,8 +1,10 @@
 .keyboard {
-    width:484px;
+    width:100%;
     
     
 }
+
+
 
 .keyboard-row{
     display:flex;
@@ -12,8 +14,7 @@
 }
 
 .keyboard-row:nth-child(2){
-    position:relative;
-    left:21px;
+    justify-content: center;
 }
 
 .keyboard-key{
@@ -46,3 +47,18 @@
     background-repeat: no-repeat;
 }
 
+
+
+@media screen and (max-width:484px) {
+    
+    :root{
+        --scaleFactor: calc(100vw / 484px);
+    }
+    
+    .keyboard {
+        transform: scale(var(--scaleFactor));
+    }
+
+    
+    
+}
