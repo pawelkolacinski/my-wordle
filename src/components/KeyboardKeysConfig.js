@@ -1,6 +1,4 @@
-export default 
-
-{
+const config = {
     "rows": [
         ["q","w","e","r","t","y","u","i","o","p"],
         ["a","s","d","f","g","h","j","k","l"],
@@ -9,3 +7,6 @@ export default
     
     
 }
+
+export default config
+

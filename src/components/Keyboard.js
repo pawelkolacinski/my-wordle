@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import KeyboardKeysData from "./KeyboardKeysData"
+import KeyboardKeysConfig from "./KeyboardKeysConfig"
 import './Keyboard.css'
 
 
-export default function Keyboard({onKeyPressed=()=>{}, keyClasses={}}) {
+export default function Keyboard({onKeyPressed, keyClasses={}}) {
 
     useEffect(()=> {
         document.addEventListener('keyup', event => {
@@ -20,14 +20,14 @@ export default function Keyboard({onKeyPressed=()=>{}, keyClasses={}}) {
         })
 
 
-    },[])
+    },[onKeyPressed])
 
   return (
     <div className="keyboard">
-      {KeyboardKeysData.rows.map((row,i) => (
+      {KeyboardKeysConfig.rows.map((row,i) => (
         <div className="keyboard-row"  key={i}>
           {row.map(key => (
-            <button className={`keyboard-key ${keyClasses[key] ? keyClasses[key] : ''}`} key={key} data-key={key}>{key}</button>
+            <button className={`keyboard-key ${keyClasses[key] ?? ''}`} key={key} data-key={key}>{key}</button>
           ))}
         </div>
       ))}

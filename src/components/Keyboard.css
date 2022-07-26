@@ -1,11 +1,12 @@
 .keyboard {
     width:484px;
-    margin:0 auto;
+    
+    
 }
 
 .keyboard-row{
     display:flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 6px;
     gap:6.5px;
 }
@@ -22,6 +23,7 @@
    background-color:#d3d6da;
    border:none;
    border-radius:4px;
+   text-transform: capitalize;
 }
 
 .keyboard-key[data-key="Enter"],.keyboard-key[data-key="Backspace"]{
