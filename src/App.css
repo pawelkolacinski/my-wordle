@@ -11,6 +11,10 @@
   margin:0 auto;
 }
 
+h1.answer{
+  text-align: center;
+}
+
 .keyboard,.letter-grid{
   margin: 0 auto;
 }
