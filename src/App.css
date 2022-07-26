@@ -21,15 +21,18 @@
 
 .keyboard-key.wordleletter-exists-same-place, .letter.wordleletter-exists-same-place{
   background-color: green;
+  color:white;
 
 }
 
 .keyboard-key.wordleletter-exists-different-place, .letter.wordleletter-exists-different-place{
   background-color: yellow;
   
+  
 }
 
 .keyboard-key.wordleletter-exists-not, .letter.wordleletter-exists-not{
-  background-color: #787c7e;;
+  background-color: #787c7e;
+  color:white;
   
 }
