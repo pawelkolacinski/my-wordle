@@ -1,39 +1,49 @@
-import { useState, useCallback, useEffect } from 'react';
+import {useCallback, useEffect } from 'react';
 import './App.css';
 import Keyboard from './components/Keyboard';
 import LetterGrid from './components/LetterGrid';
-import WordsObject from './data/words_en.json'
+import { useSelector, useDispatch } from 'react-redux'
+import {addUserLetter, initGame} from './state/wordleSlice'
+
 
 function App() {
   console.log('App rendered')
-  const [userInput, setUserInput] = useState([])
+  const dispatch = useDispatch()
+  
+  //init game
+  const wordToGuess = useSelector((state) => state.wordle.wordToGuess)
+  useEffect(() => {
+    dispatch(initGame())
+
+  },[dispatch])
+
+
+
+ //define event frirng when user types on keyboard component
   const keyPressHandler = useCallback(({key}) => {
     console.log('Pressed ' + key)
-    if(/^[a-z]$/i.test(key)) setUserInput(state => [...state, {text: key }])
     
-  },[])
+    dispatch(addUserLetter(key))
+    
+  },[dispatch])
 
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+ 
+  //get current letters and past words
+  const typedLetters = useSelector((state) => state.wordle.userLetters)
+  const typedWords = useSelector((state) => state.wordle.userWords)
+  const usedLetters = useSelector((state) => state.wordle.userWords)
 
-  const [wordToGuess, setWordToGuess] = useState('')
-  useEffect(() => {
-    setWordToGuess(WordsObject.words[getRandomInt(0,WordsObject.words.length)])
-  },[])
-  
+
 
 
 
   return (
     <div className="App">
 
-      <h1 className="answer">Todays word : {wordToGuess}</h1>
+      <h1 className="answer">Todays word : {wordToGuess} </h1>
       
-      <LetterGrid data={userInput} 
+      <LetterGrid data={[...typedWords,...typedLetters]} 
       />
 
       <br/>
