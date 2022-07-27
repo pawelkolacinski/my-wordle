@@ -11,7 +11,7 @@
   margin:0 auto;
 }
 
-h1.answer{
+h1.answer, h2.gamestate{
   text-align: center;
 }
 
@@ -23,10 +23,14 @@ h1.answer{
 
 
 
-.keyboard-key.wordleletter-exists-same-place, .letter.wordleletter-exists-same-place{
-  background-color: green;
-  color:white;
 
+
+
+
+.keyboard-key.wordleletter-exists-not, .letter.wordleletter-exists-not{
+  background-color: #787c7e;
+  color:white;
+  
 }
 
 .keyboard-key.wordleletter-exists-different-place, .letter.wordleletter-exists-different-place{
@@ -35,8 +39,8 @@ h1.answer{
   
 }
 
-.keyboard-key.wordleletter-exists-not, .letter.wordleletter-exists-not{
-  background-color: #787c7e;
+.keyboard-key.wordleletter-exists-same-place, .letter.wordleletter-exists-same-place{
+  background-color: green;
   color:white;
-  
+
 }

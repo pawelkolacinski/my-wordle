@@ -5,20 +5,39 @@ import WordsObject from '../data/words_en.json'
 const initialState = {
   wordToGuess: '',
   userWords:[],
-  userLetters:[]
+  userLetters:[],
+  gameEnded:false,
+  gameWon:false
 }
 
 const wordEnteredHandler = (state,word) => {
     let checkedWord = word.map(letter => ({text:letter,className:"wordleletter-exists-not"}))
-    console.log('checkedWord',checkedWord)
+    
 
 
     for(let i=0; i<5;i++) {
         if(state.wordToGuess.indexOf(word[i]) !== -1) checkedWord[i] = {text:word[i],className:"wordleletter-exists-different-place"}
         if(state.wordToGuess[i]===word[i]) checkedWord[i] = {text:word[i],className:"wordleletter-exists-same-place"}
     }
+
+    
+
+
+
+
     state.userWords = [...state.userWords, ...checkedWord]
     state.userLetters = []
+
+
+    if(state.wordToGuess===word.join('')){
+        state.gameEnded = true
+        state.gameWon =true
+    }
+
+    if(state.wordToGuess!==word.join('') && state.userWords.length === 6*5 ){
+        state.gameEnded = true
+        state.gameWon =false
+    }
 }
 
 export const wordleSlice = createSlice({
@@ -32,7 +51,7 @@ export const wordleSlice = createSlice({
 
     
     addUserLetter: (state, action) => {
-        if(/^[a-z]$/i.test(action.payload) && state.userLetters.length < 5) state.userLetters.push(action.payload)
+        if(/^[a-z]$/i.test(action.payload) && state.userLetters.length < 5) state.userLetters.push(action.payload.toLowerCase())
         if(action.payload === 'Backspace') state.userLetters.pop()
         if(action.payload === 'Enter' && state.userLetters.length === 5) wordEnteredHandler(state,state.userLetters)
       

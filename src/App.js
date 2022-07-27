@@ -32,16 +32,30 @@ function App() {
   //get current letters and past words
   const typedLetters = useSelector((state) => state.wordle.userLetters)
   const typedWords = useSelector((state) => state.wordle.userWords)
-  const usedLetters = useSelector((state) => state.wordle.userWords)
+  
+  //we get used letters so we can color keyboard
+  const usedLetters = {}
+  typedWords.forEach(element=>{
+    if(usedLetters[element.text]) {
+      usedLetters[element.text]+=usedLetters[element.text]+' '+element.className
+     } 
+     else {
+      usedLetters[element.text]=element.className
+     }
+  }) 
 
+  //we get state of game
 
-
+  const gameEnded = useSelector((state) => state.wordle.gameEnded)
+  const gameWon = useSelector((state) => state.wordle.gameWon)
+  
 
 
   return (
     <div className="App">
 
       <h1 className="answer">Todays word : {wordToGuess} </h1>
+      {gameEnded && <h2 className="gamestate">Game is finished. {gameWon ? 'You won!' : 'You lost.'}</h2>}
       
       <LetterGrid data={[...typedWords,...typedLetters]} 
       />
@@ -50,11 +64,7 @@ function App() {
       
       <Keyboard 
         onKeyPressed={keyPressHandler}
-        keyClasses={{
-          "q":"wordleletter-exists-same-place",
-          "e":"wordleletter-exists-different-place",
-          "w":"wordleletter-exists-not"
-        } }
+        keyClasses={usedLetters}
       />
     </div>
   );
