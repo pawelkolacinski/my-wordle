@@ -26,11 +26,12 @@ export default function LetterGrid({data, rows=6, cols=5}) {
             }} 
     >
         {gridLetters.map((letter,index) => 
+            
             <div key={index} className={`letter ${letter.className ?? ''}`}>
-                
-                    {letter.text}
-                
-            </div>)}
+                {letter.text ?? letter}
+            </div>
+            
+        )}
 
     </div>
   )
