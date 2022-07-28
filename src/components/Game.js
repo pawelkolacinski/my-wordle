@@ -34,7 +34,7 @@ export default function Game() {
     const typedLetters = useSelector((state) => state.wordle.userLetters)
     const typedWords = useSelector((state) => state.wordle.userWords)
     
-    //we get used letters so we can color keyboard
+    //we get used words so we can color keyboard if given letter was used/found
     const usedLetters = {}
     typedWords.forEach(element=>{
         if(usedLetters[element.text]) {
