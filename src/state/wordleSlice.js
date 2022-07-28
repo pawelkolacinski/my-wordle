@@ -2,13 +2,30 @@ import { createSlice } from '@reduxjs/toolkit'
 import randomInt from '../helpers/randomInt'
 import WordsObject from '../data/words_en.json'
 
-const initialState = {
-  wordToGuess: '',
-  userWords:[],
-  userLetters:[],
-  gameEnded:false,
-  gameWon:false
+
+
+const calculatePointsForFinishedGame = (state)=>{
+  if(!state.gameWon) return 0
+  const points = 100 -(state.userWords.length/5-1)*15
+  return points
 }
+
+const getGameStats = () =>{ 
+  
+  return localStorage.getItem("gameHistory") ? JSON.parse(localStorage.getItem("gameHistory")) : {games: 0, totalPoints:0}
+}
+
+
+const saveGameStats = (points) => {
+  
+  const gameHistory = getGameStats()
+  gameHistory.games= gameHistory.games + 1
+  gameHistory.totalPoints = gameHistory.totalPoints + points
+  localStorage.setItem("gameHistory", JSON.stringify(gameHistory))
+
+}
+
+
 
 const wordEnteredHandler = (state,word) => {
     let checkedWord = word.map(letter => ({text:letter,className:"wordleletter-exists-not"}))
@@ -32,18 +49,37 @@ const wordEnteredHandler = (state,word) => {
     if(state.wordToGuess===word.join('')){
         state.gameEnded = true
         state.gameWon =true
+        
     }
 
     if(state.wordToGuess!==word.join('') && state.userWords.length === 6*5 ){
         state.gameEnded = true
         state.gameWon =false
     }
+
+    state.gamePoints = calculatePointsForFinishedGame(state)
+    saveGameStats(state.gamePoints)
+    state.gameStats = getGameStats()
+
 }
 
 
 const initGameHandler = (state) =>{
   return { ...initialState, wordToGuess: WordsObject.words[randomInt(0,WordsObject.words.length)]}
   
+}
+
+
+
+const initialState = {
+  wordToGuess: '',
+  userWords:[],
+  userLetters:[],
+  gameEnded:false,
+  gameWon:false,
+  gamePoints:null,
+  gameStats:getGameStats()
+
 }
 
 export const wordleSlice = createSlice({

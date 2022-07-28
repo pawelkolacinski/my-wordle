@@ -49,7 +49,8 @@ export default function Game() {
 
     const gameEnded = useSelector((state) => state.wordle.gameEnded)
     const gameWon = useSelector((state) => state.wordle.gameWon)
-
+    const gamePoints = useSelector((state) => state.wordle.gamePoints)
+    const gameStats = useSelector((state) => state.wordle.gameStats)
 
 
   return (
@@ -57,8 +58,11 @@ export default function Game() {
         <h2 className="answer">Todays word : {wordToGuess} </h2>
         {gameEnded && 
         <Modal onCloseHandler={() => {dispatch(initGame())}}>
-          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won!' : 'You lost.'}<br/><br/>
+          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}<br/><br/>
           <button className="button" onClick={() => {dispatch(initGame())}}>New game</button>
+          {gameStats.games && <>
+            <br/><br/> You avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
+          </>}
           </h2>
         </Modal>
         
