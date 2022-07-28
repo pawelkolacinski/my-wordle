@@ -1,0 +1,23 @@
+.keyboard,.letter-grid{
+    margin: 0 auto;
+  }
+
+
+.keyboard-key.wordleletter-exists-not, .letter.wordleletter-exists-not{
+  background-color: #787c7e;
+  color:white;
+  
+}
+
+.keyboard-key.wordleletter-exists-different-place, .letter.wordleletter-exists-different-place{
+  background-color: yellow;
+  color:black;
+  
+  
+}
+
+.keyboard-key.wordleletter-exists-same-place, .letter.wordleletter-exists-same-place{
+  background-color: green;
+  color:white;
+
+} 
