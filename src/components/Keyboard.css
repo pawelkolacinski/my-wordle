@@ -49,14 +49,16 @@
 
 
 
-@media screen and (max-width:484px) {
+@media screen and (max-width:550px) {
     
     :root{
-        --scaleFactor: calc(100vw / 484px);
+        --scaleFactor: calc(90vw / 550px);
     }
     
     .keyboard {
-        transform: scale(var(--scaleFactor));
+        /* transform: scale(var(--scaleFactor)); */
+        font-size:4vw;
+        
     }
 
     

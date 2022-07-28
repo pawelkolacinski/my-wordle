@@ -5,20 +5,61 @@
 }
 
 
-.App{
-  max-width: 484px;
-  width:100vw;
-  margin:0 auto;
+body{
+  overflow:hidden;
+  
 }
 
-h1.answer, h2.gamestate{
+.App{
+  min-height:100vh;
+  position:relative;  
+  
+}
+
+
+.dark.App{
+  background-color: black;
+  color:white;
+}
+
+.container{
+  max-width: 484px;
+  width:90vw;
+  margin:0 auto;
   text-align: center;
 }
+
+.theme-switcher{
+  position:absolute;
+  right:5px;
+  top:5px;
+  display:flex;
+  align-items: center;
+}
+
+.theme-switcher span{
+  padding:5px;
+}
+
+
 
 .keyboard,.letter-grid{
   margin: 0 auto;
 }
 
+
+.button {
+  padding:10px 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+.dark .button {
+  color:white;
+  border-color:white;
+  color:white;
+}
 
 
 
@@ -35,6 +76,7 @@ h1.answer, h2.gamestate{
 
 .keyboard-key.wordleletter-exists-different-place, .letter.wordleletter-exists-different-place{
   background-color: yellow;
+  color:black;
   
   
 }
@@ -44,3 +86,16 @@ h1.answer, h2.gamestate{
   color:white;
 
 }
+
+
+@media screen and (max-width:550px) {
+  .theme-switcher{
+    position:initial;
+    margin-top:20px;
+    display:flex;
+    justify-content: center;
+
+  }
+}
+
+

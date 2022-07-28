@@ -40,17 +40,23 @@ const wordEnteredHandler = (state,word) => {
     }
 }
 
+
+const initGameHandler = (state) =>{
+  return { ...initialState, wordToGuess: WordsObject.words[randomInt(0,WordsObject.words.length)]}
+  
+}
+
 export const wordleSlice = createSlice({
   name: 'wordle',
   initialState,
   reducers: {
-    initGame:(state) =>{
-       //state = initialState
-       state.wordToGuess = WordsObject.words[randomInt(0,WordsObject.words.length)]
-    },
+
+    initGame: initGameHandler,
 
     
     addUserLetter: (state, action) => {
+        if(state.gameEnded && (action.payload === 'Enter' || action.payload === 'Escape' ) ) {return initGameHandler(state)}
+        if(state.gameEnded) return 
         if(/^[a-z]$/i.test(action.payload) && state.userLetters.length < 5) state.userLetters.push(action.payload.toLowerCase())
         if(action.payload === 'Backspace') state.userLetters.pop()
         if(action.payload === 'Enter' && state.userLetters.length === 5) wordEnteredHandler(state,state.userLetters)
