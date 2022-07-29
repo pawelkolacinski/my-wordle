@@ -1,15 +1,23 @@
-import React from 'react'
+import React, {  } from 'react'
 import {useCallback, useEffect } from 'react';
 import Keyboard from './Keyboard';
 import LetterGrid from './LetterGrid';
 import { useSelector, useDispatch } from 'react-redux'
-import {addUserLetter, initGame} from '../state/wordleSlice'
+import {addUserLetter, initGame,setGameEndDelayFinished} from '../state/wordleSlice'
 import Modal from './Modal';
 import './Game.css'
 
 export default function Game() {
     
     const dispatch = useDispatch()
+
+      //we get state of game
+
+      const gameEnded = useSelector((state) => state.wordle.gameEnded)
+      const gameWon = useSelector((state) => state.wordle.gameWon)
+      const gamePoints = useSelector((state) => state.wordle.gamePoints)
+      const gameStats = useSelector((state) => state.wordle.gameStats)
+      const gameEndDelayFinished = useSelector((state) => state.wordle.gameEndDelayFinished)
 
     //init game
     const wordToGuess = useSelector((state) => state.wordle.wordToGuess)
@@ -36,7 +44,9 @@ export default function Game() {
     
     //we get used words so we can color keyboard if given letter was used/found
     const usedLetters = {}
-    typedWords.forEach(element=>{
+    typedWords.forEach((element)=>{
+        
+
         if(usedLetters[element.text]) {
         usedLetters[element.text]+=usedLetters[element.text]+' '+element.className
         } 
@@ -45,24 +55,34 @@ export default function Game() {
         }
     }) 
 
-    //we get state of game
+   
 
-    const gameEnded = useSelector((state) => state.wordle.gameEnded)
-    const gameWon = useSelector((state) => state.wordle.gameWon)
-    const gamePoints = useSelector((state) => state.wordle.gamePoints)
-    const gameStats = useSelector((state) => state.wordle.gameStats)
+  
+
+
+    //we delay game end so animation of rotating letters can finish
+    
+    useEffect(()=>{
+      if(gameEnded){
+        
+        setTimeout(()=>dispatch(setGameEndDelayFinished(true)),2500)
+      }
+    },[gameEnded,dispatch])
 
 
   return (
     <>
-        <h2 className="answer">Todays word : {wordToGuess} </h2>
-        {gameEnded && 
+        <h2 className="answer hide">Todays word : {wordToGuess} </h2>
+        {gameEndDelayFinished && gameEnded &&  
         <Modal onCloseHandler={() => {dispatch(initGame())}}>
-          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}<br/><br/>
+          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}
+          
+          {gameStats.games && <p>
+             You avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
+          </p>}
+
+           <br/><br/> 
           <button className="button" onClick={() => {dispatch(initGame())}}>New game</button>
-          {gameStats.games && <>
-            <br/><br/> You avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
-          </>}
           </h2>
         </Modal>
         

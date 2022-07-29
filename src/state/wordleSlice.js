@@ -78,7 +78,8 @@ const initialState = {
   gameEnded:false,
   gameWon:false,
   gamePoints:null,
-  gameStats:getGameStats()
+  gameStats:getGameStats(),
+  gameEndDelayFinished:false
 
 }
 
@@ -98,12 +99,13 @@ export const wordleSlice = createSlice({
         if(action.payload === 'Enter' && state.userLetters.length === 5) wordEnteredHandler(state,state.userLetters)
       
     },
+    setGameEndDelayFinished: (state, action) => {state.gameEndDelayFinished = action.payload}
 
 
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addUserLetter, initGame } = wordleSlice.actions
+export const { addUserLetter, initGame, setGameEndDelayFinished } = wordleSlice.actions
 
 export default wordleSlice.reducer
