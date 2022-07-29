@@ -75,7 +75,7 @@ export default function Game() {
         <h2 className="answer hide">Todays word : {wordToGuess} </h2>
         {gameEndDelayFinished && gameEnded &&  
         <Modal onCloseHandler={() => {dispatch(initGame())}}>
-          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}
+          <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/><br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}
           
           {gameStats.games && <p>
              Your avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
