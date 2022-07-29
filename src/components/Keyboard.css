@@ -52,7 +52,7 @@
 @media screen and (max-width:550px) {
     
     :root{
-        --scaleFactor: calc(90vw / 550px);
+        --scaleFactor: calc(1);
     }
     
     .keyboard {
