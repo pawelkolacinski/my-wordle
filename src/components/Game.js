@@ -78,7 +78,7 @@ export default function Game() {
           <h2 className="gamestate">Game is finished. <br/> Correct answer : {wordToGuess.toUpperCase()}. <br/> {gameWon ? 'You won! You get '+gamePoints+ ' points.' : 'You lost.'}
           
           {gameStats.games && <p>
-             You avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
+             Your avarage points : {Math.round(gameStats.totalPoints/gameStats.games)}
           </p>}
 
            <br/><br/> 
