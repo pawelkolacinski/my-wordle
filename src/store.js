@@ -5,6 +5,6 @@ import themeReducer from './state/themeSlice'
 export const store = configureStore({
   reducer: {
     wordle: wordleReducer,
-    theme: themeReducer
+    theme: themeReducer,
   },
 })

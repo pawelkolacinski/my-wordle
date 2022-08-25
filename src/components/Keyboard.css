@@ -1,66 +1,56 @@
 .keyboard {
-    width:100%;
-    
-    
+  width: 100%;
 }
 
-
-
-.keyboard-row{
-    display:flex;
-    justify-content: flex-start;
-    margin-bottom: 6px;
-    gap:6.5px;
+.keyboard-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 6px;
+  gap: 6.5px;
 }
 
-.keyboard-row:nth-child(2){
-    justify-content: center;
+.keyboard-row:nth-child(2) {
+  justify-content: center;
 }
 
-.keyboard-key{
-   width:43px;
-   height:57px;
-   font-size: 1.1em;
-   background-color:#d3d6da;
-   border:none;
-   border-radius:4px;
-   text-transform: capitalize;
+.keyboard-key {
+  width: 43px;
+  height: 57px;
+  font-size: 1.1em;
+  background-color: #d3d6da;
+  border: none;
+  border-radius: 4px;
+  text-transform: capitalize;
 }
 
-.keyboard-key[data-key="Enter"],.keyboard-key[data-key="Backspace"]{
-    width:64px;
+.keyboard-key[data-key='Enter'],
+.keyboard-key[data-key='Backspace'] {
+  width: 64px;
 }
 
-.keyboard-key[data-key="Backspace"]{
-    color: transparent;
-    position:relative;
+.keyboard-key[data-key='Backspace'] {
+  color: transparent;
+  position: relative;
 }
-.keyboard-key[data-key="Backspace"]::after {
-    content: "";
-    background-image: url(../assets/backspace_icon.svg);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    transform: translate(-50%,-50%);
-    background-repeat: no-repeat;
+.keyboard-key[data-key='Backspace']::after {
+  content: '';
+  background-image: url(../assets/backspace_icon.svg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 550px) {
+  :root {
+    --scaleFactor: calc(1);
+  }
 
-
-@media screen and (max-width:550px) {
-    
-    :root{
-        --scaleFactor: calc(1);
-    }
-    
-    .keyboard {
-        /* transform: scale(var(--scaleFactor)); */
-        font-size:4vw;
-        
-    }
-
-    
-    
+  .keyboard {
+    /* transform: scale(var(--scaleFactor)); */
+    font-size: 4vw;
+  }
 }

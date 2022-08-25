@@ -1,124 +1,115 @@
-.keyboard,.letter-grid{
-    margin: 0 auto;
-  }
+.keyboard,
+.letter-grid {
+  margin: 0 auto;
+}
 
-
-.keyboard-key.wordleletter-exists-not{
-  transition:background-color 0.1s ease 2.5s,color 0.1s ease 2.5s;
+.keyboard-key.wordleletter-exists-not {
+  transition: background-color 0.1s ease 2.5s, color 0.1s ease 2.5s;
   background-color: #787c7e;
-  color:white;
-  
+  color: white;
 }
 
-.keyboard-key.wordleletter-exists-different-place{
-  transition:background-color 0.1s ease 2.5s,color 0.1s ease 2.5s;
+.keyboard-key.wordleletter-exists-different-place {
+  transition: background-color 0.1s ease 2.5s, color 0.1s ease 2.5s;
   background-color: yellow;
-  color:black;
-  
-  
+  color: black;
 }
 
-.keyboard-key.wordleletter-exists-same-place{
-  transition:background-color 0.1s ease 2.5s,color 0.1s ease 2.5s;
+.keyboard-key.wordleletter-exists-same-place {
+  transition: background-color 0.1s ease 2.5s, color 0.1s ease 2.5s;
   background-color: green;
-  color:white;
+  color: white;
+}
 
-} 
-
-
-
-.letter.wordleletter-exists-not,.letter.wordleletter-exists-different-place,.letter.wordleletter-exists-same-place{
- 
+.letter.wordleletter-exists-not,
+.letter.wordleletter-exists-different-place,
+.letter.wordleletter-exists-same-place {
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
-.letter.wordleletter-exists-not{
+.letter.wordleletter-exists-not {
   animation-name: rotateLetterExiststsNot;
-
 }
 
-.letter.wordleletter-exists-different-place{
+.letter.wordleletter-exists-different-place {
   animation-name: rotateLetterExiststsDifferentPlace;
-
 }
 
-.letter.wordleletter-exists-same-place{
+.letter.wordleletter-exists-same-place {
   animation-name: rotateLetterExiststsSamePlace;
 }
 
-
 @keyframes rotateLetterExiststsNot {
-  0%   {}
- 
-  50%  {
+  0% {
+  }
+
+  50% {
     transform: rotateX(90deg);
-    
   }
   75% {
     background-color: #787c7e;
-    color:white;
+    color: white;
   }
- 
+
   100% {
     transform: rotateX(0deg);
     background-color: #787c7e;
-    color:white;
+    color: white;
   }
 }
 
 @keyframes rotateLetterExiststsDifferentPlace {
-  0%   {}
- 
-  50%  {
+  0% {
+  }
+
+  50% {
     transform: rotateX(90deg);
-    
   }
   75% {
     background-color: yellow;
-    color:black;
+    color: black;
   }
- 
+
   100% {
     transform: rotateX(0deg);
     background-color: yellow;
-    color:black;
+    color: black;
   }
 }
 
 @keyframes rotateLetterExiststsSamePlace {
-  0%   {}
- 
-  50%  {
+  0% {
+  }
+
+  50% {
     transform: rotateX(90deg);
-    
   }
   75% {
     background-color: green;
-    color:white;
+    color: white;
   }
- 
+
   100% {
     transform: rotateX(0deg);
     background-color: green;
-    color:white;
+    color: white;
   }
 }
 
-
-.letter:nth-child(5n+1){
+.letter:nth-child(5n + 1) {
   animation-delay: 0s;
 }
-.letter:nth-child(5n+2){
+.letter:nth-child(5n + 2) {
   animation-delay: 0.5s;
 }
-.letter:nth-child(5n+3){
+.letter:nth-child(5n + 3) {
   animation-delay: 1s;
 }
-.letter:nth-child(5n+4){
+.letter:nth-child(5n + 4) {
   animation-delay: 1.5s;
 }
-.letter:nth-child(5n+5){
+.letter:nth-child(5n + 5) {
   animation-delay: 2s;
 }

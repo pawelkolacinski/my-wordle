@@ -1,20 +1,17 @@
-.letter-grid{
-    display:grid;
-    max-width:350px;
-    gap:5px;
-    font-size: 1.7em;
-    font-weight: bold;
-    text-transform: capitalize;
+.letter-grid {
+  display: grid;
+  max-width: 350px;
+  gap: 5px;
+  font-size: 1.7em;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .letter-grid > * {
+  border: 2px solid #d3d6da;
 
-    border:2px solid #d3d6da;
-    
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio:1/1;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
 }
-

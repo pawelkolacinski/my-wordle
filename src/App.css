@@ -1,94 +1,73 @@
-*{
+* {
   margin: 0;
-  padding:0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-
-body{
-  overflow:hidden;
-  
+body {
+  overflow: hidden;
 }
 
-.App{
-  min-height:100vh;
-  position:relative;  
-  
+.App {
+  min-height: 100vh;
+  position: relative;
 }
 
-
-.dark.App{
+.dark.App {
   background-color: black;
-  color:white;
+  color: white;
 }
 
-.container{
+.container {
   max-width: 484px;
-  width:90vw;
-  margin:0 auto;
+  width: 90vw;
+  margin: 0 auto;
   text-align: center;
 }
 
-.theme-switcher{
-  position:absolute;
-  right:5px;
-  top:5px;
-  display:flex;
+.theme-switcher {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: flex;
   align-items: center;
 }
 
-.theme-switcher span{
-  padding:5px;
+.theme-switcher span {
+  padding: 5px;
 }
 
-
-
-.game-info-link{
+.game-info-link {
   text-decoration: underline;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-
-.game-info-word{
+.game-info-word {
   grid-template-columns: repeat(5, 1fr);
 }
 
-
 .button {
-  padding:10px 20px;
+  padding: 10px 20px;
   background-color: transparent;
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .dark .button {
-  color:white;
-  border-color:white;
-  color:white;
+  color: white;
+  border-color: white;
+  color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width:550px) {
-  .theme-switcher{
-    position:initial;
-    margin-top:20px;
-    display:flex;
+@media screen and (max-width: 550px) {
+  .theme-switcher {
+    position: initial;
+    margin-top: 20px;
+    display: flex;
     justify-content: center;
-
   }
 }
 
-
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
-
