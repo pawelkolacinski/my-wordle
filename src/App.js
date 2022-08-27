@@ -18,8 +18,12 @@ function App() {
       <div className="container">
         <h1 className="title">Wordle Clone</h1>
         <p
+          tabIndex="0"
           className="game-info-link"
           onClick={() => setShowGameInfoModal(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') setShowGameInfoModal(true)
+          }}
         >
           How to play?
         </p>
