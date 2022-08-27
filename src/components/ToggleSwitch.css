@@ -61,3 +61,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/*accessibility */
+.switch input:focus + .slider {
+  outline: 2px solid black;
+}
+
+.dark .switch input:focus + .slider {
+  outline: 2px solid white;
+}
