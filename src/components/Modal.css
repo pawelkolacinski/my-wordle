@@ -32,6 +32,7 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .modal-close:hover,
@@ -43,4 +44,8 @@
 
 .dark .modal-content {
   background-color: black;
+}
+
+.dark .modal-close:hover {
+  color: #fefefe;
 }
