@@ -71,16 +71,21 @@ export default function Game() {
           }}
         >
           <h2 className="gamestate">
-            Game is finished. <br /> Correct answer :{' '}
-            {wordToGuess.toUpperCase()}. <br />
+            Game is finished <br /> Correct answer : {wordToGuess.toUpperCase()}{' '}
+            <br />
             <br />{' '}
-            {gameWon
-              ? 'You won! You get ' + gamePoints + ' points.'
-              : 'You lost.'}
+            {gameWon ? (
+              <>
+                <p className="game-ended-status game-won">You won!</p>
+                <p>You get {gamePoints} points</p>
+              </>
+            ) : (
+              <p className="game-ended-status game-lost">You lost...</p>
+            )}
             {gameStats.games && (
               <p>
                 Your avarage points :{' '}
-                {Math.round(gameStats.totalPoints / gameStats.games)}.
+                {Math.round(gameStats.totalPoints / gameStats.games)}
               </p>
             )}
             <br />

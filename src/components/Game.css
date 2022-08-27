@@ -113,3 +113,20 @@
 .letter:nth-child(5n + 5) {
   animation-delay: 2s;
 }
+
+.game-ended-status {
+  font-size: 1.2em;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+}
+
+.game-ended-status.game-won {
+  background-color: green;
+}
+
+.game-ended-status.game-lost {
+  background-color: #787c7e;
+}
