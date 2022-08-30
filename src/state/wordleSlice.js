@@ -102,7 +102,6 @@ export const wordleSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { addUserLetter, initGame, setGameEndDelayFinished } =
   wordleSlice.actions
 
