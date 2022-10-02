@@ -5,7 +5,8 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  padding-bottom: 10px;
 }
 
 .App {
