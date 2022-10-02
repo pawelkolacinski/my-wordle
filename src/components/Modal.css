@@ -33,6 +33,9 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
+  top: -13px;
+  left: 5px;
 }
 
 .modal-close:hover,
